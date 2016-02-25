@@ -1,0 +1,6 @@
+a
+b
+c
+d
+echo hello
+0 sort -u

@@ -1,0 +1,7 @@
+#!/usr/local/cs/bin/bash
+echo>output1.txt
+echo>stderr.txt
+./simpsh --profile --rdonly foo --wronly output1.txt --wronly stderr.txt --command 0 1 2 sort -u --wait
+
+time cat < foo|sort -u > output1.txt
+

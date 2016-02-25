@@ -1,0 +1,45 @@
+PLEASE DO READ THIS!!!!
+IMPORTANT TEST CASES INCLUDED
+
+1. All the three test cases are contained in file test.sh
+2. Upon success, make check won't output anything
+3. The main.c contains all the code for lab1 part a.
+
+==========================================
+for lab1c benchmarks, below are my results.
+
+first, I created a random file of size 2.6 MB with the following command:
+dd if=/dev/urandom count=5000 > foo
+
+test1:
+simpsh:
+./simpsh --profile --rdonly foo --wronly output1.txt --wronly stderr.txt --command 0 1 2 sort -u --wait
+
+This gives me a total amount of 0.000341s kernel time
+
+bash:
+time cat < foo|sort -u> output1.txt
+
+This gives a real time of 0.153s, user time of 0.109s, and a sys time of 0.008s
+
+execline:
+redirfd -u 1 output1.txt
+pipeline { cat foo } sort -u
+
+put the above scripts into a file named execline.sh, then call time ./execline.sh
+
+This gives a real time of 0.144s, user time of 0.105s, and a sys time of 0.009s
+
+test2:
+./simpsh --profile --rdonly foo --wronly output1.txt --wronly stderr.txt --command 0 1 2 uniq foo --wait
+
+This gives me a total amount of 0.000284s of kernel time
+
+bash:
+time cat < foo|uniq > output1.txt
+This gives a real time of 0.057s, a user time of 0.016s, and a sys time of 0.005s
+
+execline:
+redirfd -u 1 output1.txt
+uniq foo
+This gives me a real time of 0.048s, a user time of 0.014s, and sys time of 0.004s

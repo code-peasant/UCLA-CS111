@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Huiwen Zheng">
+    <title>UCLA CS111 Winter16 Lecture1 Scribe Note</title>
+  </head>
+  <body>
+    <h1> Winter16 CS111 Lecture 1</h1>
+    <h2>Course logistics</h2>
+    <a href="http://web.cs.ucla.edu/classes/winter16/cs111"  target="_blank">
+      Course Website
+    </a>
+    <h2>What is a <u>system</u>?</h2>
+    <b>OED original </b>(1928)
+    <ul>
+      <li>An organized or connected group of objects</li>
+      <li>A set of principles, etc, a scheme, method</li>
+      <li>from Ancient Greek, &#963;&#973;&#963;&#964;&#951;&#956;&#945;,
+	organized whole, government, constitution, a body of people or
+	animals, musical instruments.</li>
+    </ul>
+    <h2><b>Operating System</b></h2>
+    <dl>
+      <dt>American Heritage</dt>
+      <dd>software designed to control the hardware of a data proccessing system in order to
+
+	allow users and applications programs to make use of if.</dd>
+      <dt>Encarta (2007)</dt>
+      <dd>master control program in a computer</dd>
+      <dt>Wikipedia 698216816 (2016-01-04)</dt>
+      <dd>collection of smaller programs and softwares that is used to control and operate the
+
+	computer system</dd>
+    </dl>
+    <h2>Major Missing Issues of the Definitions above</h2>
+    <ul>
+      <li>resource management</li>
+      <li>reliability and error handling</li>
+      <li>Security</li>
+    </ul>
+    Example:<br />
+    <br />
+    Circa 2000 hardware<br />
+    $ ls -l big<br />
+    -rw-rw-r-- 1 eggert faculty 9223372036854775000 Oct 6 11:31 big<br />
+    $ grep x big<br />
+    $ time grep x big<br />
+    real 0m0.009s<br />
+    <br />
+    This gives us a speed of approximately 10<sup>22</sup>b/s. According to
+    <a href="http://what-if.xkcd.com/31/">http://what-if.xkcd.com/31/</a> the
+    bandwidth of the Internet is 10<sup>11</sup>b/s, and if we hire all the freight
+    trucks in the US to transport hardrives, the speed will be approximately 0.5Zb/s.
+    The explanation behind this amazingly high speed is because that in ZFS(zeta File System),
+
+    big is an intensional file, which only stores a description or program of the file on the
+
+    desk. This type of file can be used in anti-virus softwares to allievate the workload of
+
+    the program.
+
+    <h2>Problem Areas in OS Design</h2>
+    <dl>
+      <dt><b>Incommensurate Scaling</b></dt>
+      <dd>not everything scales at the same rate
+	<dl>
+	  <dt><b>economies of scale</b></dt>
+	  <dd>can cause waste<br />
+	    Example: O(logN) algorithm and Adam Smith's
+	    Pin Factory</dd>
+	  <dt><b>diseconomies of scale</b></dt>
+	  <dd>can cause breakage<br />
+	    Example:O(logN<sup>2</sup>) algorithm</dd>
+      </dl></dd>
+      <dt><b>Emergent Properties</b></dt>
+      <dd>larger systems have properties that smaller prototypes didn't<br />
+	Examples:
+	<ul>
+	  <li>Tacoma Narrows Bridges</li>
+	  <li>UCLA Campus Network</li>
+      </ul></dd>
+      <dt><b>Propagation of Effects</b></dt>
+      <dd>Propagation of effects also exist in other systems, but in computer
+
+	systems, pathways for propagations are more effective.<br />
+	Example:<br />
+	&nbsp;Internationalization: Shift-JIS encoding used in Windows system</dd>
+      <dt><b>Tradeoffs</b></dt>
+      <dd>Waterbed Effect<br />
+	Example:
+	<ul>
+	  <li>In previous example, Linux system chose UTF-8 encoding rather
+
+	    than Shift-JIS encoding but UTF-8 encoding requires more memory
+
+	    than Shift-JIS encoding does</li>
+	  <li>Security tradeoff: password VS RSA and password</li>
+      </ul></dd>
+    </dl>
+  </body>
+  </html>

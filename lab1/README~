@@ -1,0 +1,19 @@
+1. All the three test cases are contained in file test.sh
+2. Upon success, make check won't output anything
+3. The main.c contains all the code for lab1 part a.
+
+==========================================
+for lab1c benchmarks, below are my results.
+
+test1:
+simpsh:
+./simpsh --profile --rdonly input1.txt --wronly output1.txt --wronly stderr.txt --command 0 1 2 sort -u --wait
+
+This gives me a total amount of 0.000294 kernel time in total
+
+bash:
+time cat < input1.txt|sort -u> output1.txt
+
+This gives a real time of 0.003s, user time of 0.001s, and a sys time of 0.002s
+
+execline:

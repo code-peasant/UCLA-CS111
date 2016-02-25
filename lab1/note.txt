@@ -1,0 +1,28 @@
+
+'\0' = end of the file(EOF)
+
+void main(void){
+     long nwords = 0;
+     bool inword = 0;
+     int s = 1000;
+     char buf[512];
+     for (;)
+     {
+	read_ide_sector(s++, buf);
+	for (int j = 0; j < sizeof(buf); j++){
+	if (!buf[j])
+	   done();
+	bool isletter = 'a'<=buf[j] && buf[j] <='z', same for upper case
+	     nwords+=isletter&~inword;
+	     inword=isletter;
+	     
+	}
+     }
+}
+
+void done(long nwords){
+     output_to_screen(nwords);
+     halt();
+}
+
+fd is not necessarily continuous
